@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: online-shop-dec
+  namespace: argocd
+
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sachinchaudhary-system-engineer/argocd-project.git
+    targetRevision: main
+    path: projects/online-shop
+  destination:
+    server: https://192.168.142.133:6443
+    namespace: online-shop
+  syncPolicy:
+    automated:                     # Enable auto-sync
+      prune: true                  # Delete resources removed from Git
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
