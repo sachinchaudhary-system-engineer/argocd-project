@@ -27,13 +27,13 @@ spec:
 
 ---
 
-Kind: Service
+kind: Service
 apiVersion: v1
 metadata:
   name: online-shop-service
 
 spec:
-  selectors:
+  selector:
     apps: online-shop
   ports:
   - protocol: TCP
