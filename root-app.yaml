@@ -1,0 +1,21 @@
+kind: Application
+apiVersion: argoproj.io/v1alpha1
+metadata:
+  name: root-app
+  namespace: argocd
+
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sachinchaudhary-system-engineer/argocd-project.git
+    targetRevision: main
+    path: apps-of-app
+  destination:
+    server: https://192.168.179.128:6443
+    namespace: online-shop
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace

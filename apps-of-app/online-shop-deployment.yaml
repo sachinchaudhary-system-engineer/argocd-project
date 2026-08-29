@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: online-shop
-  namespace: online-shop
 spec:
   replicas: 4
   selector:
@@ -32,7 +31,6 @@ Kind: Service
 apiVersion: v1
 metadata:
   name: online-shop-service
-  namespace: online-shop
 
 spec:
   selectors:
