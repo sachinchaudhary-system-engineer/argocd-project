@@ -18,7 +18,7 @@ spec:
                 port:
                   number: 3000
 
-          - path: /apache
+          - path: /
             pathType: Prefix
             backend:
               service:
@@ -26,7 +26,7 @@ spec:
                 port:
                   number: 80
 
-          - path: /nginx
+          - path: /
             pathType: Prefix
             backend:
               service:
