@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: online-shop
+  name: online-shop-deployment
 spec:
   replicas: 4
   selector:
@@ -13,7 +13,7 @@ spec:
         app: online-shop
     spec:
       containers:
-      - name: online-shop
+      - name: online-shop-container
         image: amitabhdevops/online_shop:latest
         ports:
         - containerPort: 3000
@@ -34,7 +34,7 @@ metadata:
 
 spec:
   selector:
-    apps: online-shop
+    app: online-shop
   ports:
   - protocol: TCP
     port: 3000
