@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/sachinchaudhary-system-engineer/argocd-project.git
     targetRevision: main
-    path: apps-of-app
+    path: apps-of-app/deployments
   destination:
     server: https://192.168.179.128:6443
     namespace: online-shop
