@@ -25,3 +25,20 @@ spec:
           limits:
             memory: "256Mi"
             cpu: "500m"
+
+---
+
+Kind: Service
+apiVersion: v1
+metadata:
+  name: online-shop-service
+  namespace: online-shop
+
+spec:
+  selectors:
+    apps: online-shop
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000
+  type: ClusterIP
