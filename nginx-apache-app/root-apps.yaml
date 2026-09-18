@@ -30,7 +30,7 @@ spec:
         path: '{{path}}'
 
       destination:
-        server: https://kubernetes.default.svc
+        server: https://172.31.13.172:6443
         namespace: nginx-apache-app
 
       syncPolicy:
