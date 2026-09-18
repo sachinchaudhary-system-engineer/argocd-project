@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+
+metadata:
+  name: nginx-apache-apps
+  namespace: argocd
+
+spec:
+
+  generators:
+    - list:
+        elements:
+          - app: nginx
+            path: nginx-apache-app/nginx
+
+          - app: apache
+            path: nginx-apache-app/apache
+
+  template:
+
+    metadata:
+      name: '{{app}}-app'
+
+    spec:
+      project: default
+
+      source:
+        repoURL: https://github.com/sachinchaudhary-system-engineer/argocd-project.git
+        targetRevision: main
+        path: '{{path}}'
+
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: nginx-apache-app
+
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+
+        syncOptions:
+          - CreateNamespace=true
